@@ -22,6 +22,8 @@ List the plugins in the mod's own `Data/Mods/legacy-plugins/storage.json`, relat
 
 A `plugins` list from an older `settings.json` is copied there once, the first time the client starts without one.
 
+Started from CUOLauncher, the profile's plugin list wins instead: only the plugins enabled there load, disabled ones are skipped.
+
 Windows desktop only. Plugins load only when the client is started through `ClassicUO.exe`.
 
 ## Build
