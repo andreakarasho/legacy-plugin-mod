@@ -12,11 +12,15 @@ Each plugin works as it does on the old client:
 
 ## Setup
 
-List the plugins in `settings.json`, relative to `Data/Plugins` next to the exe:
+List the plugins in the mod's own `Data/Mods/legacy-plugins/storage.json`, relative to `Data/Plugins` next to the exe:
 
 ```json
-"plugins": [ "ClassicAssist/ClassicAssist.dll" ]
+{
+  "plugins": [ "ClassicAssist/ClassicAssist.dll" ]
+}
 ```
+
+A `plugins` list from an older `settings.json` is copied there once, the first time the client starts without one.
 
 Windows desktop only. Plugins load only when the client is started through `ClassicUO.exe`.
 
