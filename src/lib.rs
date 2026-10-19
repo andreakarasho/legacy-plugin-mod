@@ -108,7 +108,7 @@ fn verdict(blob: &[u8]) -> Verdict {
 // ── input ───────────────────────────────────────────────────────────────────────────
 
 #[system]
-fn input(mut cmds: Commands, kb: Option<Res<KeyboardInputDto>>, mouse: Option<Res<MouseInputDto>>) {
+fn input(mut cmds: Commands, kb: Option<Res<KeyboardInput>>, mouse: Option<Res<MouseInput>>) {
     S.with(|s| {
         let mut s = s.borrow_mut();
         if !s.loaded {
@@ -185,7 +185,7 @@ const KMOD: [(i32, u32); 8] = [
 /// pressed this frame (`cuo:input/keyboard`, which the host leaves empty while a text
 /// field has focus), the SDL_Keymod derived from them, and the wheel notch / middle / X
 /// presses (`cuo:input/mouse`).
-fn input_frame(kb: &KeyboardInputDto, mouse: Option<&MouseInputDto>) -> InputFrame {
+fn input_frame(kb: &KeyboardInput, mouse: Option<&MouseInput>) -> InputFrame {
     let mut down = [false; 256];
     for &k in kb.pressed.iter().chain(&kb.pressed_once) {
         if (1..256).contains(&k) {
@@ -268,7 +268,7 @@ fn sdl_keycode(vk: u8) -> u32 {
 // ── tick ────────────────────────────────────────────────────────────────────────────
 
 #[system]
-fn tick(me: Query<&WorldPosition, With<Player>>, ctx: Option<Res<GameContextDto>>) {
+fn tick(me: Query<&WorldPosition, With<Player>>, ctx: Option<Res<GameContext>>) {
     S.with(|s| {
         let mut s = s.borrow_mut();
         if !s.started {

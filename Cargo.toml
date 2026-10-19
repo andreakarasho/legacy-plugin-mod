@@ -2,12 +2,12 @@
 
 [package]
 name = "legacy-plugins"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 
 [dependencies]
 # Pinned SDK revision: its generated paths / types must match the client the mod loads into.
-cuo-mod-sdk = { git = "https://github.com/ClassicUO/classicuo-mods-sdk", rev = "10827ca" }
+cuo-mod-sdk = { git = "https://github.com/ClassicUO/classicuo-mods-sdk", rev = "8f2adac" }
 
 [lib]
 crate-type = ["cdylib", "rlib"]
